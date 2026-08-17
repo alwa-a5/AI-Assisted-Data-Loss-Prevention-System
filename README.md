@@ -5,10 +5,8 @@
 # System Topology
 
 <p align="center">
-  <img src="assets/ai-dlp-topology.svg" width="100%" alt="Draw.io topology for the AI-Assisted Data Loss Prevention System" />
+  <img src="assets/ai-dlp-topology.svg" width="100%" alt="AI-Assisted Data Loss Prevention System topology" />
 </p>
-
-[Open the editable Draw.io topology](assets/ai-dlp-topology.drawio)
 
 - The entire workflow runs locally on the Ubuntu VM. A user enters a prompt or uploads a supported `.txt`, `.csv`, or `.docx` file through the Streamlit interface and selects either an approved enterprise AI service or an unapproved public AI service as the destination. Presidio and a custom secret recognizer inspect the content for sensitive entities, and Ollama runs Llama 3.2 locally to classify the information and provide a confidence score, reason, and recommended action. The deterministic risk and policy engine makes the final `ALLOW`, `WARN`, or `BLOCK` decision, produces a sanitized version when sensitive values are found, and records the result in `results.json` for the Monitoring and Evaluation views.
 
